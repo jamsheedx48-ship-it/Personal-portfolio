@@ -1,0 +1,230 @@
+/* Responsive Layout Adjustments */
+
+@media (max-width: 1024px) {
+  .hero-wrapper {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.5rem;
+  }
+  
+  .hero-name {
+    font-size: 3.5rem;
+  }
+  
+  .hero-role {
+    font-size: 1.5rem;
+  }
+  
+  .projects-grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Header & Navigation changes */
+  .hamburger {
+    display: block;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: var(--header-height);
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: calc(100vh - var(--header-height));
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 3rem 2rem;
+    gap: 2rem;
+    border-left: 1px solid rgba(0, 255, 255, 0.15);
+    transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    align-items: flex-start;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  /* Hero section changes */
+  .hero-wrapper {
+    grid-template-columns: 1fr;
+    padding-top: calc(var(--header-height) + 2rem);
+    padding-bottom: 2rem;
+    min-height: auto;
+    gap: 3rem;
+  }
+  
+  .hero-content {
+    text-align: left;
+  }
+  
+  .hero-name {
+    font-size: 3rem;
+  }
+  
+  .hero-role-container {
+    height: auto;
+  }
+  
+  .hero-visual {
+    order: -1; /* Place visual/terminal card on top for mobile view flow */
+    width: 100%;
+  }
+  
+  .terminal-card {
+    max-width: 100%;
+  }
+  
+  /* Sections spacing */
+  section {
+    padding: 60px 1.5rem 40px 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Skills & Tech stack */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Projects section */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-card.featured {
+    grid-column: span 1;
+    background: var(--bg-secondary);
+  }
+  
+  .project-card.featured .project-title {
+    font-size: 1.5rem;
+    padding-right: 0;
+  }
+  
+  .project-featured-badge {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: 1rem;
+    display: inline-flex;
+    align-self: flex-start;
+  }
+  
+  /* Experience timeline */
+  .timeline-container::before {
+    left: 10px;
+  }
+  
+  .timeline-item {
+    padding-left: 30px;
+  }
+  
+  .timeline-dot {
+    left: 1px;
+  }
+  
+  .timeline-header-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  /* Contact section */
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-social-row {
+    flex-wrap: wrap;
+  }
+  
+  .form-group-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: 2.5rem;
+  }
+  
+  .hero-role {
+    font-size: 1.25rem;
+  }
+  
+  .hero-ctas {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  footer {
+    padding: 2rem 1.5rem;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+/* Accessibility and performance modifications */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .reveal-element {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .glitch::before,
+  .glitch::after,
+  .glitch:hover::before,
+  .glitch:hover::after,
+  .glitch.trigger-load::before,
+  .glitch.trigger-load::after {
+    animation: none !important;
+    content: none !important;
+  }
+  
+  .timeline-dot {
+    animation: none !important;
+  }
+  
+  .custom-cursor,
+  .custom-cursor-glow,
+  #hero-canvas {
+    display: none !important;
+  }
+}
+
+/* Turn off cursor trail on touch devices */
+@media (pointer: coarse) {
+  .custom-cursor,
+  .custom-cursor-glow {
+    display: none !important;
+  }
+}
